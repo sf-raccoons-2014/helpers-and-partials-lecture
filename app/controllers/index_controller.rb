@@ -1,0 +1,4 @@
+
+get '/articles' do
+  
+end
