@@ -20,12 +20,14 @@ describe "index controller" do
     end
   end
 
-  it "responds with articles that are in the database" do
-    # Given
-    article = Article.create(title: "An Article Title")
-    # When
-    get '/articles'
-    # Then
-    expect(last_response.body).to include("An Article Title")
+  describe "get /articles/:id" do
+    it "responds with a successful status" do
+      # Given
+      article = Article.create(title: "An Article Title")
+      # When
+      get "/articles/#{article.id}"
+      # Then
+      expect(last_response.status).to eq(200)
+    end
   end
 end
