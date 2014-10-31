@@ -9,6 +9,7 @@ end
 
 get '/articles/:id' do
   @article = Article.find(params[:id])
+  redirect '/sessions/new' unless session[:user_id] == @article.user.id
   erb :article
 end
 

@@ -3,13 +3,15 @@
 </div>
 
 <% @articles.each do |article| %>
-  <div>
-    <!-- inline styles are awful. -->
+  <% if article.user.id == session[:user_id] %>
+    <div>
+      <!-- inline styles are awful. -->
 
-    <h1 style="display: inline"><%= article.title %> </h1>
+      <h1 style="display: inline"><%= article.title %> </h1>
 
-    <span class="author">
-      by <%= article.user.username %>
-    </span>
-  </div>
+      <span class="author">
+        by <%= article.user.username %>
+      </span>
+    </div>
+  <% end %>
 <% end %>
