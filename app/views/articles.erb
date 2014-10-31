@@ -3,7 +3,7 @@
 </div>
 
 <% @articles.each do |article| %>
-  <% if article.user.id == session[:user_id] %>
+  <% if article.user == current_user %>
     <div>
       <!-- inline styles are awful. -->
 
